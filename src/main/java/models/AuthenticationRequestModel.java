@@ -4,20 +4,21 @@ public class AuthenticationRequestModel {
     private String userName;
     private  String password;
 
-    public AuthenticationRequestModel(String userName, String password) {
+    private AuthenticationRequestModel(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
-    public static AuthenticationRequestModel password(String password) {
-
-        return new AuthenticationRequestModel(password);
+    public  AuthenticationRequestModel password(String password) {
+        this.password=password;
+        return this;
     }
     public static AuthenticationRequestModel userName(String userName) {
-
-        return new AuthenticationRequestModel(userName);
+        return new AuthenticationRequestModel(userName,null);
     }
-
+public AuthenticationRequestModel(String password){
+        this.password=password;
+}
     public String getUserName() {
         return userName;
     }
