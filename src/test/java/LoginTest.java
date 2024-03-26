@@ -12,12 +12,11 @@ public class LoginTest {
     @Test
     public void loginPositive() throws IOException {
         AuthenticationRequestModel requestModel=AuthenticationRequestModel.userName(PropertiesReader.getProperty("existingUserEmail")).password(PropertiesReader.getProperty("existingUserPassword"));
-      //  AuthenticationRequestModel requestModel=AuthenticationRequestModel.userName("homeann7@gmail.com").password("21212zZ!");
+      
         RequestBody requestBody=RequestBody.create(TestConfig.gson.toJson(requestModel),TestConfig.JSON);
         Request request=new Request.Builder().url(PropertiesReader.getProperty("URL"))
                 .post(requestBody).build();
-      //  Request request=new Request.Builder().url("https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword")
-        //          .post(requestBody).build();
+
 
         Response response=TestConfig.client.newCall(request).execute();
         if(response.isSuccessful()){
