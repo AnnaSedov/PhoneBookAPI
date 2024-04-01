@@ -1,5 +1,4 @@
 import helpers.PropertiesReader;
-import helpers.PropertiesWriter;
 import helpers.TestConfig;
 import models.AuthenticationRequestModel;
 import models.AuthenticationResponseModel;

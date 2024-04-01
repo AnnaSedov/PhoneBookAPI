@@ -13,7 +13,7 @@ public class GetAllContacts {
     @Test
     public void getAllContactsPositive() throws IOException {
         Request request=new Request.Builder().url(PropertiesReader.getProperty("getAllContacts"))
-                .addHeader("Authorization",PropertiesReader.getProperty("token")).build();
+                .addHeader("Authorization", PropertiesReader.getProperty("token")).build();
 
         Response response= TestConfig.client.newCall(request).execute();
 

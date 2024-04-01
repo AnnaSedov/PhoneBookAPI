@@ -2,10 +2,11 @@ package helpers;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
-import java.io.IOException;
+
 public class PropertiesWriter {
 
     public static void main(String[] args) {
