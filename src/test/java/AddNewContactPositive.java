@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddNewContactPositive implements TestHelper {
     String idResult;
-
-    public void addNewContact() throws IOException {
+@Test
+    public void addNewContact() throws IOException, SQLException {
         ContactModel contactModel = new ContactModel(NameAndLastNameGenerator.generateName(),
                 NameAndLastNameGenerator.generateLastName(), EmailGenerator.generateEmail(2, 3, 2),
                 PhoneNumberGenerator.generatePhoneNumber(), AddressGenerator.generateAddress(), "d");
@@ -28,11 +29,13 @@ public class AddNewContactPositive implements TestHelper {
                 gson.fromJson(response.body().string(), ContactResponseModel.class);
         String responseMsg = contactResponseModel.getMessage();
         idResult = IdExtractor.extractId(responseMsg);
+        DatabaseConnection databaseConnection=new DatabaseConnection();
+        databaseConnection.contactDatabaseRecorder(idResult,contactModel);
         System.out.println("Message : "+idResult);
         Assert.assertTrue(response.isSuccessful());
     }
     @Test
-    public void deleteContactByID() throws IOException {
+    public void deleteContactByID() throws IOException, SQLException {
         addNewContact();
         Request request = new Request.Builder()
                 .url(ADD_CONTACT_PATH+"/"+idResult)

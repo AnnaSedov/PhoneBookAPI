@@ -1,4 +1,5 @@
 import helpers.PropertiesReader;
+import helpers.PropertiesWriter;
 import helpers.TestConfig;
 import models.AuthenticationRequestModel;
 import models.AuthenticationResponseModel;
@@ -39,8 +40,8 @@ public class LoginTest {
                     TestConfig.gson.fromJson(response.body().string(),
                             AuthenticationResponseModel.class);
 
+         //   PropertiesWriter.writeProperties("token",responseModel.getToken(), false);
             PropertiesWriter.writeProperties("token",responseModel.getToken(), false);
-
             Assert.assertTrue(response.isSuccessful());
         }
         else {

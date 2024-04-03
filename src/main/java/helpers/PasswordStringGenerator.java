@@ -26,7 +26,7 @@ public class PasswordStringGenerator {public static String generateString() {
 
 
     String specialChars = "[]!$_-";
-    int specialCharsCount = 1 + random.nextInt(3); // Генерируем от 1 до 3 спецсимволов
+    int specialCharsCount = 1 + random.nextInt(3);
     for (int i = 0; i < specialCharsCount; i++) {
         int index = random.nextInt(specialChars.length());
         char specialChar = specialChars.charAt(index);

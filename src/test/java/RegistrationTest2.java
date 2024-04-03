@@ -1,5 +1,7 @@
 import helpers.*;
 import models.AuthenticationResponseModel;
+import models.ContactModel;
+import models.ContactResponseModel;
 import models.ErrorModel;
 import models.NewUserModel;
 import okhttp3.Request;
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class RegistrationTest2 implements TestHelper{
+public class RegistrationTest2 implements TestHelper  {
 
 
 
@@ -21,12 +23,15 @@ public class RegistrationTest2 implements TestHelper{
             Request request=new Request.Builder().url(REGISTRATION_PATH).post(requestBody).build();
             Response response=client.newCall(request).execute();
             String res=response.body().toString();
-            System.out.println("Response "+res);
+            System.out.println("Response "+res+" "+response.code());
             if(response.isSuccessful()){
-                AuthenticationResponseModel responseModel=gson.fromJson(res, AuthenticationResponseModel.class);
+             //   AuthenticationResponseModel responseModel= gson.fromJson(res,AuthenticationResponseModel.class); //!!!!
+AuthenticationResponseModel responseModel = TestConfig.gson.fromJson(response.body().string(),AuthenticationResponseModel.class);
+          //     AuthenticationResponseModel responseModel=gson.fromJson(res,AuthenticationResponseModel.class);
+                String resultToken = responseModel.getToken();
                 System.out.println("Token"+responseModel.getToken());
                 PropertiesWriterXML propertiesWriterXML=new PropertiesWriterXML(FILE_PATH);
-                propertiesWriterXML.setProperties(TOKEN_KEY,responseModel.getToken(),false);
+                propertiesWriterXML.setProperties(TOKEN_KEY,resultToken,false);
                 Assert.assertTrue(response.isSuccessful() );
 
             }
