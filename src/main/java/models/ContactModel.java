@@ -9,7 +9,17 @@ public class ContactModel {
     private  String address;
     private String description;
 
-    public ContactModel( String name, String lastName, String email, String phone, String address, String description) {
+    public ContactModel(String id, String name, String lastName, String email, String phone, String address, String description) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.description = description;
+    }
+
+    public ContactModel(String name, String lastName, String email, String phone, String address, String description) {
 
         this.name = name;
         this.lastName = lastName;
@@ -17,6 +27,10 @@ public class ContactModel {
         this.phone = phone;
         this.address = address;
         this.description = description;
+    }
+
+    public ContactModel() {
+
     }
 
     public ContactModel id(String id) {

@@ -7,7 +7,6 @@ import java.sql.*;
 public class DatabaseConnection {
     public void contactDatabaseRecorder(String id,ContactModel contactModel) throws SQLException {
         String url="jdbc:mysql://localhost:3306/phonebook";
-       //          "jdbc:mysql://localhost:3306/phonebook"
         String username="root";
         String password="28730";
         Connection connection= DriverManager.getConnection(url,username,password);
