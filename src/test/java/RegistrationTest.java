@@ -18,7 +18,7 @@ public class RegistrationTest {
     AuthenticationRequestModel requestModel = AuthenticationRequestModel.username(EmailGenerator.generateEmail(3,3,2))
             .password(PropertiesReader.getProperty("newUserPassword"));
     System.out.println("REQUEST: "+requestModel.getUsername()+" : "+requestModel.getPassword());
-    //PropertiesWriter.writeProperties("emailNew",requestModel.getUsername(),false);
+
     PropertiesWriter.writeProperties("emailNew",requestModel.getUsername(),false);
     RequestBody requestBody = RequestBody.create(TestConfig.gson.toJson(requestModel),TestConfig.JSON);
 
