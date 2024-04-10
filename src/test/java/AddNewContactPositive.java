@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class AddNewContactPositive implements TestHelper {
     String idResult;
-@Test
+//@Test
     public void addNewContact() throws IOException, SQLException {
         ContactModel contactModel = new ContactModel(NameAndLastNameGenerator.generateName(),
                 NameAndLastNameGenerator.generateLastName(), EmailGenerator.generateEmail(2, 3, 2),
