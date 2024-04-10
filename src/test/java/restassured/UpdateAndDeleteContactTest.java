@@ -24,8 +24,14 @@ public class UpdateAndDeleteContactTest implements TestHelper {
 
              id=IdExtractor.extractId(message);
              //hw  10.04.2024 find  new contact with id
-
-        System.out.println( FindContact.findContact(id,0,""));
+        PropertiesWriterXML propertiesWriterXML=new PropertiesWriterXML(FILE_PATH);
+        propertiesWriterXML.setProperties("id",id,false);
+        propertiesWriterXML.setProperties("nameNew",contactModel.getName(),false);
+        propertiesWriterXML.setProperties("emailNew",contactModel.getEmail(),false);
+        propertiesWriterXML.setProperties("phoneNew",contactModel.getPhone(),false);
+        propertiesWriterXML.setProperties("lastNameNew",contactModel.getLastName(),false);
+        propertiesWriterXML.setProperties("addressNew",contactModel.getAddress(),false);
+        System.out.println( FindContact.findContact(id));
     }
 
     @Test
@@ -36,7 +42,7 @@ public class UpdateAndDeleteContactTest implements TestHelper {
         given().header(AuthorizationHeader,PropertiesReader.getProperty("token")).body(contactModel).contentType(ContentType.JSON)
                 .when().put().then().assertThat().statusCode(200).assertThat().body("message",containsString("update"));
        //hw 10.04.2024 find  updated contact  with id
-        System.out.println( FindContact.findContact(id,1,oldEmail));
+        System.out.println( FindContact.findContact(id));
     }
 @Test
     public void deleteContactById(){
@@ -44,7 +50,7 @@ public class UpdateAndDeleteContactTest implements TestHelper {
         given().header(AuthorizationHeader,PropertiesReader.getProperty("token")).when().delete(id).then()
                 .assertThat().statusCode(200).assertThat().body("message",containsString("deleted"));
    //hw 10.04.2024 find deleted contact in contact list with id
-    System.out.println(FindContact.findContact(id,0,""));
+    System.out.println(FindContact.findContact(id));
 }
 
 }

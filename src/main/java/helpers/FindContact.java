@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 public class FindContact  {
-   public static String findContact(String id,int num,String email) {
+   public static String findContact(String id) {
        RestAssured.baseURI = PropertiesReader.getProperty("getAllContacts");
        ContactListModel responseBody = given()
                .body(ContactListModel.class)
@@ -22,17 +22,22 @@ public class FindContact  {
        for (ContactModel contactModel : responseBody.getContacts()) {
 
          if(contactModel.getId().equals(id)){
-             if(num==0){
-                return "contact with id: "+id+" exist";}
-             if(!(num==1&&contactModel.getEmail().equals(email))){
-                String s= "contact with id: "+id+"exist and was updated";
+
+
+             if(!contactModel.getEmail().equals(PropertiesReaderXML.getProperty("emailNew"))||
+             !contactModel.getName().equals(PropertiesReaderXML.getProperty("nameNew"))||
+             !contactModel.getAddress().equals(PropertiesReaderXML.getProperty("addressNew"))||
+             !contactModel.getPhone().equals(PropertiesReaderXML.getProperty("phoneNew"))){
+                String s= "contact with id: "+id+" exist and was updated";
                 return s;
+             }else{
+                 return "contact with id: "+id+" exist";
              }
          }
 
 
        }
-return "contact not exist";
+return "contact with id: "+id+" not exist";
    }
    }
 

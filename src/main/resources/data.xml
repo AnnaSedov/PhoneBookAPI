@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<entry key="phoneNew">Jack</entry>
-<entry key="nameDel"></entry>
-<entry key="phoneUp"></entry>
-<entry key="emilUp"></entry>
-<entry key="phoneDel"></entry>
-<entry key="emilDel"></entry>
-<entry key="token">eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoicW5zQGt0LmhtIiwiaXNzIjoiUmVndWxhaXQiLCJleHAiOjE3MTI2NjU0MjcsImlhdCI6MTcxMjA2NTQyN30.p8Lx8zFi90MvdphOiCUeBU-SQsEhYJcIUgiFcrpjXPA</entry>
-<entry key="nameNew">Jack</entry>
-<entry key="emailNew">Jack</entry>
-<entry key="nameUp"></entry>
-<entry key="id">9bb74a3a-351a-4bb6-8036-6ebfd6589a76</entry>
+<entry key="phoneNew">7889537859</entry>
+<entry key="addressNew">Phoenix Fifth 177 IL</entry>
+<entry key="nameNew">Darren</entry>
+<entry key="emailNew">qp@yvg.hh</entry>
+<entry key="id">047d4ca4-d925-48f0-ad33-432d9da6e67e</entry>
 <entry key="user001"></entry>
 <entry key="user002"></entry>
+<entry key="token">eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoicW5zQGt0LmhtIiwiaXNzIjoiUmVndWxhaXQiLCJleHAiOjE3MTI2NjU0MjcsImlhdCI6MTcxMjA2NTQyN30.p8Lx8zFi90MvdphOiCUeBU-SQsEhYJcIUgiFcrpjXPA</entry>
+<entry key="lastNameNew">Hicks</entry>
 </properties>
