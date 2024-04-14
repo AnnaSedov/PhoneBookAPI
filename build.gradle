@@ -19,6 +19,8 @@ dependencies {
 
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
+    testImplementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '4.0.5'
+    implementation group: 'org.mongodb', name: 'mongodb-driver-sync', version: '4.0.5'
 }
 
 test {

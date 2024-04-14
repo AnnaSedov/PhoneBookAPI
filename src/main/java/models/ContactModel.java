@@ -33,6 +33,19 @@ public class ContactModel {
 
     }
 
+    @Override
+    public String toString() {
+        return "ContactModel{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
     public ContactModel id(String id) {
         this.id = id;
         return this;
